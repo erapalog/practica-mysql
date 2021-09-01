@@ -22,3 +22,6 @@ cnx.connect(function (error) {
         })
     }
 })
+
+// blob arregloBytes
+//string --> localhost/images/perro.png

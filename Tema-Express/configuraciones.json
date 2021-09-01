@@ -1,0 +1,22 @@
+{
+    "dev": {
+        "server": "http://127.0.0.1",
+        "port": 3000
+    },
+    "qa": {
+        "server": "http://127.0.0.1",
+        "port": 5000
+    },
+    "prod": {
+        "server": "http://127.0.0.1",
+        "port": 8081
+    },
+    "BD": {
+        "host":"127.0.0.1",
+        "user": "root",
+        "password": "",
+        "database": "productos"
+    }
+
+
+}

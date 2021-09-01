@@ -1,0 +1,27 @@
+
+sintaxis basica de una ruta express:
+    
+    app.metodo(GET,POST,PUT, etc) (ruta_acceso,middleware, callback) 
+
+ruta_acceso : la parte especifica o la url que maneja cada metodo
+middleware: una o mas funciones  que se pueden llamar antes de ralizar una devolucions de llamada (callback)
+callback: una funcion que se utiliza para manejar solicitudes (request,response , next)
+
+request: un objeto que detalla las peticiones o solicitudes HTTP que realiza un cliente
+response: Un objeti que detalla las respuestas o solicitudes HTTP que realiza el servidor
+
+
+//entornos o ambiente
+    3 tipos
+
+    1. Desarrollo => nosotros tenemos nuestro codigo 
+    2. Pruebas (QA) => las personas hagan sus pruebas, certificar que lo que desarrollamos esta ok 
+    3. Produccion => ambiente el cliente la personas que solicito el sistema valida y esta de acuerdo al requerimiento inicial
+
+Dev = 3000
+QA= 5000
+Prod: 8081
+
+Dev: test/test
+QA: QA/QA
+prod: prod/prod
