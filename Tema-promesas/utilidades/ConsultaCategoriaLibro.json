@@ -1,0 +1,6 @@
+{
+    "SelectCategoria": "SELECT *FROM TBLCATEGORIALIBRO",
+    "SelectCategoriaPodId": "SELECT *FROM TBLCATEGORIALIBRO WHERE idCatagoria=?",
+    "InsertarCategoria": "INSERT INTO TBLCATEGORIALIBRO(descripcion,estado) VALUES(?,?)",
+    "updateCategoria": "UPDATE TBLCATEGORIALIBRO set descripcion=?,estado=? where  idCatagoria=?"
+}

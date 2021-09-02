@@ -1,0 +1,24 @@
+
+Las promesas: Son objeto en Javascript
+
+promesas  4 metodos:
+
+    .then (resove): ejectutar una funcion callback devuelve resolve cuando la promesa se cumple
+    .catch : ejecuta el funcion de callback reject cuando la promesas son rechazadas
+    .then (resolve, reject) : metodo equivalente a los dos anteriores
+    .finally (end) ejecuta una funcion de callback end se ejcuta tanto si cumple o rechaza la promesa
+
+proyecto express:
+    1. Punto de entrada
+    2. paquete conexion
+    3. paquete servicios
+    4. archivo configuracion
+
+Carpeta conexion: nuestra configuracion a la base de datos
+Carpeta servucio: van contener todos los metodo necesarios para realizar un CRUD
+
+
+status en una respuesta
+
+    1.status cabecera: status que reconoce el navegador o cliente que realiza la peticion
+    2. status en el body: status que reconce el desarrollador para realizar o agregar logica de programacion
