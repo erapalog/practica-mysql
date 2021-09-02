@@ -22,3 +22,18 @@ status en una respuesta
 
     1.status cabecera: status que reconoce el navegador o cliente que realiza la peticion
     2. status en el body: status que reconce el desarrollador para realizar o agregar logica de programacion
+
+
+Libro:
+    1. IdLibro
+    2. Descripcion del Libro
+    3. Autor
+    4. Fecha Publicacion
+    5. Categoria pertenecen (FK)
+    
+Metodos:
+    1. agregar Libro
+    2. actualizar Libro
+    3. eleminar libros
+    4. consultar todos lo libros
+    5. consultar por categoria 
