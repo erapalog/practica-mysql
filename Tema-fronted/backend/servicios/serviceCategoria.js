@@ -11,6 +11,19 @@ function selectCategorias() {
     })
 }
 
+
+function agregarCategoria(decripcion) {
+
+    return new Promise((resolve, reject) => {
+        conexion.query(propertiesConsultas.mantenimientos.catagorias.insertarCategoria, [decripcion], (err, resultado) => {
+            if (err) reject(err)
+            else resolve(resultado)
+        })
+    })
+
+}
+
 module.exports = {
-    selectCategorias: selectCategorias
+    selectCategorias: selectCategorias,
+    agregarCategoria:agregarCategoria
 }

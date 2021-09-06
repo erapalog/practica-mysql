@@ -1,7 +1,8 @@
 {
     "mantenimientos": {
         "catagorias": {
-            "selectCategorias": "Select *from tblcatagoria"
+            "selectCategorias": "Select *from tblcatagoria",
+            "insertarCategoria":"insert into tblcatagoria(descripcion) values(?)"
         },
         "imagenesAplicacin": {
             "selectImagenes": ""
