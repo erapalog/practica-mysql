@@ -1,0 +1,19 @@
+
+Tener la siguiente separacion de codigo
+    1. Fronted: 
+       
+    
+    2. Backend:
+        Servicios
+        Conexion 
+        Utilidades
+        Controladores:
+            Mantenimiento
+                controller1
+                controller2
+            Seguridad
+                controller1
+                controller2
+
+
+    index.js: Rutas en express

@@ -1,0 +1,13 @@
+{
+    "mantenimientos": {
+        "catagorias": {
+            "selectCategorias": "Select *from tblcatagoria"
+        },
+        "imagenesAplicacin": {
+            "selectImagenes": ""
+        },
+        "comentarios":{
+            "selectComentarios":"select *from tblcomentarioaplicacion"
+        }
+    }
+}
