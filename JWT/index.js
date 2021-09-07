@@ -1,26 +1,22 @@
 const express = require('express')
 const jwt = require('jsonwebtoken')
+const bodyParser = require('body-parser')
+const servicioLogin = require('./servicios/loginService')
 
 require('crypto').randomBytes(64).toString('hex')
 
 const app = express();
 
+app.use(bodyParser.json())
+
 const TOKEN_SECRET = "bytheone$2021";
 
-const usuarios = [{
-        id: 1,
-        nombre: 'Erick'
-    },
-    {
-        id: 2,
-        nombre: "Pedro"
-    }
-]
+
 
 //vamos a generar nuestro token
-function generarJWT(userName) {
+function generarJWT(userName, password) {
     // return jwt.sign(userName, TOKEN_SECRET, { expiresIn: 60 * 60 })
-    return jwt.sign(userName, TOKEN_SECRET);
+    return jwt.sign(userName + password, TOKEN_SECRET);
 
 }
 
@@ -30,12 +26,12 @@ function autenticarToken(req, res, next) {
     const authHeader = req.headers['authorization']
     const token = authHeader && authHeader.split(' ')[1]
 
-    if (token == null) return res.sendStatus(401)
+    if (token == null) return res.status(401).json({"Mensaje":"Debe iniciar sesion"})
 
     jwt.verify(token, TOKEN_SECRET, (err, user) => {
         console.log(err)
 
-        if (err) return res.sendStatus(401)
+        if (err) return res.status(401).json({"Mensaje":"Debe iniciar sesion"})
 
         req.user = user
 
@@ -44,46 +40,39 @@ function autenticarToken(req, res, next) {
 
 }
 
-app.get('/api/login/:usuario', (req, res) => {
+app.post('/api/login', (req, res) => {
 
-    let usuario = req.params.usuario;
+    let usuario = req.body.usuario;
+    let clave = req.body.clave;
     let token = "";
 
-    let existeUsuario = validarUsuario(usuario)
+    servicioLogin.login(usuario, clave)
+        .then(data => {
+            if (data[0]!=undefined && data[0]!=null) {
+                token = generarJWT(usuario,clave);
+                return res.status(200).json({
+                    "mensaje": token
+                })
+            } else {
+                return res.status(400).json({
+                    "mensaje": "Usuario no existe"
+                })
+            }
 
-    if (existeUsuario) {
-        token = generarJWT(usuario);
-        return res.status(200).json({
-            "mensaje": token
         })
-    } else {
-
-        return res.status(400).json({
-            "mensaje": "Usuario no existe"
+        .catch(error => {
+            return res.status(500).json({
+                "mensaje": "Ocurrio un error"
+            })
         })
-    }
 
 })
 
 
 app.get('/api/consultar-usuario', autenticarToken, (req, res) => {
-
-    res.status(200).json(usuarios);
+    res.status(200).json({"mensaje":"Servicio funcionando"});
 })
 
 
-function validarUsuario(userName) {
-
-
-
-    let existe = false;
-    for (let i of usuarios) {
-        if (i.nombre == userName) {
-            existe = true;
-        }
-
-    }
-    return existe;
-}
 
 app.listen(3000)
