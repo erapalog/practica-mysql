@@ -3,9 +3,6 @@ var bodyParser = require('body-parser')
 
 const mantenimientos = require('./backend/Controllers/Categorias/CategoriaContoller')
 const comentarios = require('./backend/Controllers/Comentarios/ComentariosController');
-const {
-    Types
-} = require('mysql');
 
 var app = express();
 
@@ -14,7 +11,7 @@ app.use(bodyParser.json({
 }));
 
 app.use('/mantenimiento', mantenimientos)
- app.use('/comentarios', comentarios)
+app.use('/comentarios', comentarios)
 
 app.use(express.static(__dirname + '/fronted'));
 
